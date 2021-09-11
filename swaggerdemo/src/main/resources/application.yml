@@ -1,0 +1,29 @@
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #url: jdbc:mysql://127.0.0.1:3306/mysql?characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&serverTimezone=Asia/Shanghai&useSSL=false
+    url: jdbc:mysql://localhost:3306/test?serverTimezone=Shanghai&?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: Abcdef12
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+  security:
+    user:
+      name: user
+      password: user
+    autoconfigure:
+      exclude: org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+    
+server:
+  port: 8080
+  
+mybatis:
+  mapper-locations: classpath:mapper/*.xml 
+
+eureka:
+  instance:
+    status-page-url: http://localhost:${server.port}/doc.html
+
